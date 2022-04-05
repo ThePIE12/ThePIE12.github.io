@@ -1,50 +1,66 @@
+let running = false;
+
+
 function partialLoadAndReplaceLanguage(link, duration) {
-	duration = duration || 500;
+	if(running) return;
+	else running = true;
+	duration = duration || 700;
+	offset = 50;
+	console.log(duration);
 
 	window.history.pushState({}, '', link);
 
 	// '#main-wrapper' clone for animation purposes (clone > current[partially changed])
-	mwclone = $('#main-wrapper').clone().attr('id', 'clone').appendTo('body').css('pointer-events', 'none')
-				                .css('opacity', '1');
+	mwclone = $('#main-wrapper').clone().attr('id', 'clone').appendTo('body')
+								.css('opacity', '1')
+		   						.addClass('out-able');
+	mwclone.find('*[langrpl]').css('opacity', '1')
+		   .addClass('out-able');
+	onDocLoaded(mwclone);
+
 	mw = $('#main-wrapper');
 
-	mw.css('opacity', '0')
-	  .css('position', 'absolute')
-	  .css('z-index', '-1')
-	  .css('pointer-events', 'none');
+	mw.css('position', 'absolute')
+	  .css('z-index', '-1');
+	mw.find('*[langrpl]').css('opacity', '0');
+	setTimeout(function() {
+		mw.find('*[langrpl]').addClass('in-able');
+	}, offset);
 
 	$('#main-wrapper *[langrpl]').each(function(i, e) {
 		let loadHolder = $('<div></div>');
 		let qs = `*[langrpl=${$(this).attr('langrpl')}]`
 
 		loadHolder.load(`${link} ${qs}`, function() {
-			console.log(mw.find(qs).html());
-			console.log(loadHolder.find(qs).html());
 			mw.find(qs).html(loadHolder.find(qs).html());
 		});
 	});
 
-	mw.css('transition', `opacity ${duration}ms ease-in 0s`).children().css('transition', `opacity ${duration}ms ease-in 0s`);
- 	mwclone.css('transition', `opacity ${duration}ms ease-out 0s`).children().css('transition', `opacity ${duration}ms ease-out 0s`);
-
-	setTimeout( function() {
-		mw.css('opacity', '1');
+	setTimeout(function() {
 		mwclone.css('opacity', '0');
-	}, 50);
+		mwclone.find('*[langrpl]').css('opacity', '0');
+	}, offset);
+
+	setTimeout(function() {
+		mw.find('*[langrpl]').css('opacity', '1');
+	}, duration/2 + offset);
 
 	setTimeout(() => {
-		mw.css('pointer-events', 'initial').css('position', 'initial').css('z-index', 'initial');
+		mw.css('position', 'initial').css('z-index', 'initial');
+		mw.find('*[langrpl]').removeClass('in-able').css('opacity', 'initial');
 		$('#clone').remove();
-	}, duration);
+		running = false;
+	}, duration + offset);
 }
 
-function onDocLoaded() {
-	$('.langbtn').click(function(e) {
+function onDocLoaded(context) {
+	context = context || document;
+	$('.langbtn', context).click(function(e) {
 		e.preventDefault();
-		$('.langbtn').each(function() {
+		$('.langbtn', context).each(function() {
 			$(this).parent().attr('activelang', null);
 		});
-		$(this).parent().attr('activelang', '');
+		$(this, context).parent().attr('activelang', '');
 		partialLoadAndReplaceLanguage(this.href);
 	});
 }
