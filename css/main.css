@@ -6,8 +6,12 @@ body {
 	padding: 0;
 }
 
-* {
-	transition: 'opacity' 5000ms ease-out 0s;
+.in-able {
+	transition: all 350ms ease-in 0s;
+}
+
+.out-able {
+	transition: all 350ms ease-out 0s;
 }
 
 #main-wrapper {
@@ -52,7 +56,7 @@ nav {
 
 .nav-lang ul {
 	list-style: none;
-	margin: 0;
+	margin: 0 0 0 1em;
 	padding: 0;
 }
 
@@ -61,10 +65,12 @@ nav {
 	color: inherit;
 }
 
-.nav-lang ul li[activelang]::before {
-	content: "✓";
+.nav-lang ul li[activelang] {
+	position: relative;
 }
 
-.nav-lang ul li:not([activelang]) {
-	margin-left: 1em;
+.nav-lang ul li[activelang]::before {
+	position: absolute;
+	left: -1em;
+	content: "✓";
 }

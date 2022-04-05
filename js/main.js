@@ -6,7 +6,6 @@ function partialLoadAndReplaceLanguage(link, duration) {
 	else running = true;
 	duration = duration || 700;
 	offset = 50;
-	console.log(duration);
 
 	window.history.pushState({}, '', link);
 
