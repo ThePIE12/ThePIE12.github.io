@@ -1,0 +1,70 @@
+body {
+	font-family: brandon-grotesque, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+	color: #fff;
+	background-color: #36393f;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	transition: 'opacity' 5000ms ease-out 0s;
+}
+
+#main-wrapper {
+	font-family: brandon-grotesque, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+	color: #fff;
+	background-color: #36393f;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-profile {
+	padding: 20px 30px;
+	display: inline-flex;
+	align-items: center;
+	text-align: justify;
+	gap: 1.5em;
+	background-color: #2d2f34;
+	border-radius: 0 0 50px 0;
+}
+
+.nav-profile .profile-pic {
+	image-rendering: crisp-edges;
+	max-height: 84px;
+	border-radius: 50%;
+}
+
+.nav-profile .profile-name {
+	font-size: 28pt;
+}
+
+.nav-lang {
+	position: fixed;
+	right: 0;
+	height: fit-content;
+	padding: 20px;
+	background-color: #2d2f34;
+	border-radius: 0 0 0 50px;
+}
+
+.nav-lang ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-lang ul li a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-lang ul li[activelang]::before {
+	content: "✓";
+}
+
+.nav-lang ul li:not([activelang]) {
+	margin-left: 1em;
+}
