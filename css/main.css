@@ -1,5 +1,5 @@
 body {
-	font-family: brandon-grotesque, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+	font: 400 1rem /1.75 'Sawarabi Gothic', Inter, 'brandon-grotesque', serif;
 	color: #fff;
 	background-color: #36393f;
 	margin: 0;
@@ -14,10 +14,31 @@ body {
 	transition: all 350ms ease-out 0s;
 }
 
+@font-face {
+  font-family: 'brandon-grotesque';
+  src: url('brandon-grotesque-light-58a8a4b38001d.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-VariableFont_slnt,wght.ttf') format('truetype');
+  font-weight: 100 900; /* Set the font weights available */
+}
+
+
 #main-wrapper {
-	font-family: brandon-grotesque, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
 	color: #fff;
 	background-color: #36393f;
+}
+
+*:lang(ja) > * {
+	font-family: 'Sawarabi Gothic', Inter, 'brandon-grotesque', serif;
+}
+
+*:lang(en) > * {
+	font-family: Inter, 'brandon-grotesque', 'Sawarabi Gothic', serif;
 }
 
 nav {

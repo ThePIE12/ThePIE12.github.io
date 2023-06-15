@@ -1,10 +1,11 @@
 function loadNewContent(link) {
-	$('#main-wrapper *[langrpl]').each(function(i, e) {
-		const loadHolder = $('<div></div>');
-		const qs = `*[langrpl=${$(this).attr('langrpl')}]`;
+	loadHolder = $('<div></div>');
+	loadHolder.load(`${link} #main-wrapper`, () => {
+  		$('#main-wrapper').attr('lang', loadHolder.children(0).attr('lang'));
 
-		loadHolder.load(`${link} ${qs}`, function() {
-			$('#main-wrapper').find(qs).html(loadHolder.find(qs).html());
+		$('#main-wrapper *[langrpl]').each(function(i, e) {
+			const query = `*[langrpl=${$(this).attr('langrpl')}]`;
+			$('#main-wrapper').find(query).html(loadHolder.find(query).html());
 		});
 	});
 }
