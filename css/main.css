@@ -26,28 +26,27 @@ nav {
 }
 
 .nav-profile {
-	padding: 20px 30px;
+	padding: 1em;
 	display: inline-flex;
 	align-items: center;
 	text-align: justify;
 	gap: 1.5em;
 	background-color: #2d2f34;
-	border-radius: 0 0 50px 0;
+	border-radius: 0 0 42px 0;
 }
 
 .nav-profile .profile-pic {
-	image-rendering: crisp-edges;
-	max-height: 84px;
+	max-height: 64px;
 	border-radius: 50%;
 }
 
 .nav-profile .profile-name {
-	font-size: 28pt;
+	font-size: 20pt;
 }
 
 .nav-profile-pic-container {
-    height: 84px;
-    width: 84px;
+    height: 64px;
+    width: 64px;
 }
 
 .nav-lang {
@@ -78,4 +77,16 @@ nav {
 	position: absolute;
 	left: -1em;
 	content: "✓";
+}
+
+.main-content {
+	padding: 24px 20vw;
+}
+
+.main-content::before {
+	content: "";
+	background-color: #535b61;
+	display: block;
+	width: auto;
+	height: 1px;
 }
