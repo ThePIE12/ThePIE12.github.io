@@ -45,6 +45,11 @@ nav {
 	font-size: 28pt;
 }
 
+.nav-profile-pic-container {
+    height: 84px;
+    width: 84px;
+}'
+
 .nav-lang {
 	position: fixed;
 	right: 0;
