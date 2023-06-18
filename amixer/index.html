@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adaptive Music Player</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- Linking JavaScript -->
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div id="player">
+        <input type="file" id="songAInput" accept=".mp3,.flac,.wav" />
+        <input type="file" id="songBInput" accept=".mp3,.flac,.wav" />
+        <audio id="songAPlayer" preload="auto"></audio>
+        <audio id="songBPlayer" preload="auto"></audio>
+        <label for="volumeSlider">Mix: </label>
+        <input type="range" id="volumeSlider" min="0" max="2" step="0.01" value="1" />
+        1<label for="masterVolumeSlider">Master Volume: </label>
+        <input type="range" id="masterVolumeSlider" min="0" max="1" step="0.01" value="1" />
+        <label id="seekerStatus">0:00 / 0:00</label>
+        <label for="seekerSlider">Seek: </label>
+        <input type="range" id="seekerSlider" min="0" step="1" value="0" />
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
+    </div>
+</body>
+</html>
