@@ -14,9 +14,13 @@
         <input type="file" id="songBInput" accept=".mp3,.flac,.wav" />
         <audio id="songAPlayer" preload="auto"></audio>
         <audio id="songBPlayer" preload="auto"></audio>
+        <button id="mixLeftButton">Mix Left</button>
+        <button id="mixCenterButton">Mix Center</button>
+        <button id="mixRightButton">Mix Right</button>
+        <span id="mixStatus">Mix Status: Center</span>
         <label for="volumeSlider">Mix: </label>
         <input type="range" id="volumeSlider" min="0" max="2" step="0.01" value="1" />
-        1<label for="masterVolumeSlider">Master Volume: </label>
+        <label for="masterVolumeSlider">Master Volume: </label>
         <input type="range" id="masterVolumeSlider" min="0" max="1" step="0.01" value="1" />
         <label id="seekerStatus">0:00 / 0:00</label>
         <label for="seekerSlider">Seek: </label>
